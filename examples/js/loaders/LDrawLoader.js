@@ -77,10 +77,10 @@ THREE.LDrawLoader = ( function () {
 		#include <color_fragment>
 		outgoingLight = diffuseColor.rgb; // simple shader
 		gl_FragColor = vec4( outgoingLight, diffuseColor.a );
-		#include <premultiplied_alpha_fragment>
 		#include <tonemapping_fragment>
 		#include <encodings_fragment>
 		#include <fog_fragment>
+		#include <premultiplied_alpha_fragment>
 	}
 	`;
 
@@ -1030,8 +1030,6 @@ THREE.LDrawLoader = ( function () {
 
 		objectParse: function ( text ) {
 
-			//console.time( 'LDrawLoader' );
-
 			// Retrieve data from the parent parse scope
 			var parentParseScope = this.getParentParseScope();
 
@@ -1176,8 +1174,6 @@ THREE.LDrawLoader = ( function () {
 
 									type = lp.getToken();
 
-									if ( ! parsingEmbeddedFiles ) {
-
 										currentParseScope.triangles = [];
 										currentParseScope.lineSegments = [];
 										currentParseScope.conditionalSegments = [];
@@ -1208,8 +1204,6 @@ THREE.LDrawLoader = ( function () {
 										triangles = currentParseScope.triangles;
 										lineSegments = currentParseScope.lineSegments;
 										conditionalSegments = currentParseScope.conditionalSegments;
-
-									}
 
 									break;
 
